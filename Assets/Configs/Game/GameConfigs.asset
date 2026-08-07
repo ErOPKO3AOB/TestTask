@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41428d1631b0ed34b8b3ec532d6eac6f, type: 3}
+  m_Name: GameConfigs
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.GameConfigs
+  playerPrefab: {fileID: 2336800991224300193, guid: f0158d3f1f9e7d7458eb91d8a57c15ab, type: 3}
+  CM_FollowCamPrefab: {fileID: 2783868940893983318, guid: c3ab3535023018d448b467e05671b1ba, type: 3}
+  enemies:
+  - name: Zombie
+    prefab: {fileID: 905220316099941172, guid: befde47eeee739b4b93727f20f0f9595, type: 3}
+  baseSpawnInterval: 2
+  minSpawnInterval: 1
+  maxSpawnRate: 8
+  spawnRateCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0.027777778
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 180
+      value: 6
+      inSlope: 0.027777778
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minSpawnRadius: 120
+  maxSpawnRadius: 125
+  maxSpawnAttempts: 12
+  navMeshSampleDistance: 2.5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256

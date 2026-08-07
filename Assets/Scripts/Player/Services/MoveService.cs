@@ -4,7 +4,7 @@ using VContainer.Unity;
 
 namespace Assets.Scripts.Player.Services
 {
-    public class MoveService : ITickable
+    public class MoveService : IFixedTickable
     {
         public MoveService(PlayerView view, IInputReader inputReader)
         {
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Player.Services
         private readonly PlayerView _view;
         private readonly IInputReader _inputReader;
 
-        public void Tick()
+        public void FixedTick()
         {
             Vector2 input = _inputReader.MoveInput;
 

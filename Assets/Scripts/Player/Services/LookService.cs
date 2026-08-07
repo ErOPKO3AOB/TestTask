@@ -3,7 +3,7 @@ using VContainer.Unity;
 
 namespace Assets.Scripts.Player.Services
 {
-    public class LookService : ILateTickable
+    public class LookService : IFixedTickable
     {
         public LookService(PlayerView playerView)
         {
@@ -12,7 +12,7 @@ namespace Assets.Scripts.Player.Services
 
         private readonly PlayerView _playerView;
 
-        public void LateTick()
+        public void FixedTick()
         {
             Vector3 velocity = _playerView.rb.linearVelocity;
             velocity.y = 0f;
