@@ -2,7 +2,7 @@ using Assets.Scripts.Inputs;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Assets.Scripts.Player
+namespace Assets.Scripts.Player.Services
 {
     public class MoveService : ITickable
     {
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Player
             if (direction.sqrMagnitude > 1f)
                 direction.Normalize();
 
-            Vector3 velocity = direction * _view.playerConfigs.moveSpeed;
+            Vector3 velocity = direction * _view.configs.moveSpeed;
             velocity.y = _view.rb.linearVelocity.y;
 
             _view.rb.linearVelocity = velocity;

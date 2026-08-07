@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameConfigs
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.GameConfigs
   playerPrefab: {fileID: 5106213842621137623, guid: 6138353a1c490bb4ca0989adf429049d, type: 3}
+  CM_FollowCamPrefab: {fileID: 2783868940893983318, guid: c3ab3535023018d448b467e05671b1ba, type: 3}

@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -17,14 +18,17 @@ namespace Assets.Scripts.Player
         private readonly GameLifetimeScope _gameLifetimeScope;
         private readonly GameConfigs _gameConfigs;
 
-        public PlayerView Create(Vector3 position, Quaternion quaternion)
+        public PlayerView Create(Vector3 position, Quaternion rotation)
         {
-            var playerView = _resolver.Instantiate(_gameConfigs.playerPrefab).GetComponent<PlayerView>();
+            var playerView = _resolver.Instantiate(_gameConfigs.playerPrefab, position, rotation).GetComponent<PlayerView>();
 
             _gameLifetimeScope.CreateChild<PlayerLifetimeScope>(builder => 
             {
                 builder.RegisterInstance(playerView);
             });
+
+            var camera = _resolver.Instantiate(_gameConfigs.CM_FollowCamPrefab).GetComponent<CinemachineCamera>();
+            camera.Target.TrackingTarget = playerView.transform;
 
             return playerView;
         }

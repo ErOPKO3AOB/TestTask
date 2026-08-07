@@ -1,11 +1,15 @@
-using Assets.Scripts.Player;
+using Assets.Scripts.Player.Services;
 using VContainer;
 using VContainer.Unity;
 
-public class PlayerLifetimeScope : LifetimeScope
+namespace Assets.Scripts.Player
 {
-    protected override void Configure(IContainerBuilder builder)
+    public class PlayerLifetimeScope : LifetimeScope
     {
-        builder.RegisterEntryPoint<MoveService>().AsSelf();
+        protected override void Configure(IContainerBuilder builder)
+        {
+            builder.RegisterEntryPoint<MoveService>().AsSelf();
+            builder.RegisterEntryPoint<LookService>().AsSelf();
+        }
     }
 }

@@ -4,7 +4,7 @@ namespace Assets.Scripts.Player
 {
     public class PlayerView : MonoBehaviour
     {
-        public PlayerConfigs playerConfigs;
+        public PlayerConfigs configs;
         public Rigidbody rb;
     }
 }

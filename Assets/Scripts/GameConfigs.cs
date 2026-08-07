@@ -6,5 +6,6 @@ namespace Assets.Scripts
     public class GameConfigs : ScriptableObject
     {
         public GameObject playerPrefab;
+        public GameObject CM_FollowCamPrefab;
     }
 }
