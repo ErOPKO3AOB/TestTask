@@ -24,12 +24,12 @@ namespace Assets.Scripts.Player
         public PlayerView Create(Vector3 position, Quaternion rotation)
         {
             // Spawn player
-            var playerView = _resolver.Instantiate(_gameConfigs.playerPrefab, position, rotation).GetComponent<PlayerView>();
+            var playerView = GameObject.Instantiate(_gameConfigs.playerPrefab, position, rotation).GetComponent<PlayerView>();
 
             // Spawning player scope
             _gameLifetimeScope.CreateChild<PlayerLifetimeScope>(builder => 
             {
-                builder.RegisterInstance(playerView);
+                builder.RegisterComponent(playerView).AsSelf();
             });
 
             // Spawn camera
