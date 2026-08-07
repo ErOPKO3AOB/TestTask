@@ -19,24 +19,24 @@ MonoBehaviour:
     prefab: {fileID: 905220316099941172, guid: befde47eeee739b4b93727f20f0f9595, type: 3}
   baseSpawnInterval: 2
   minSpawnInterval: 1
-  maxSpawnRate: 8
+  maxSpawnRate: 6
   spawnRateCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
-      outSlope: 0.027777778
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 180
-      value: 6
-      inSlope: 0.027777778
-      outSlope: 0
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  minSpawnRadius: 120
-  maxSpawnRadius: 125
+  minSpawnRadius: 40
+  maxSpawnRadius: 42
   maxSpawnAttempts: 12
   navMeshSampleDistance: 2.5
   obstacleMask:

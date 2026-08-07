@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemy.EnemyConfigs
   maxHealh: 80
   damage: 6
-  moveSpeed: 4
-  rotationSpeed: 15
+  moveSpeed: 7
+  rotationSpeed: 247.7

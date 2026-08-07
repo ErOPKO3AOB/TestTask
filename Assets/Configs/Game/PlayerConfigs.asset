@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerConfigs
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Player.PlayerConfigs
   maxHealh: 100
-  moveSpeed: 5
+  moveSpeed: 7
   rotationSpeed: 12
