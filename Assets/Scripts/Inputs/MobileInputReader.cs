@@ -9,6 +9,11 @@ namespace Assets.Scripts.Inputs
         IStartable,
         IDisposable
     {
+        public MobileInputReader()
+        {
+            _inputActions = new();
+        }
+
         private readonly PlayerInputActions _inputActions;
         public Vector2 MoveInput => _inputActions.Player.Move.ReadValue<Vector2>();
         
