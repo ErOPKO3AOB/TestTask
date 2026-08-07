@@ -36,13 +36,13 @@ namespace Assets.Scripts.Enemy
                 throw new NullReferenceException($"Enemy with name {name} not found in {nameof(GameConfigs)}! Set enemies correctly!");
 
             //var enemyInstance = _objectPoolService.Spawn(enemyPrefab, position, rotation);
-            var enemyInstance = _resolver.Instantiate(enemyPrefab, position, rotation).GetComponent<EnemyView>();
+            var enemyView = GameObject.Instantiate(enemyPrefab, position, rotation).GetComponent<EnemyView>();
             //_resolver.Inject(enemyInstance);
 
             _gameLifetimeScope.CreateChild<EnemyLifetimeScope>(builder =>
             {
                 builder.RegisterInstance(_playerFactory.PlayerView);
-                builder.RegisterInstance(enemyInstance);
+                builder.RegisterComponent(enemyView).AsSelf();
             });
 
             return null;

@@ -1,3 +1,4 @@
+using Assets.Scripts.Health;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -6,7 +7,7 @@ namespace Assets.Scripts.Player
     public class PlayerConfigs : ScriptableObject
     {
         [Header("Health")]
-        public float maxHealh;
+        public HealthConfigs healthConfigs;
 
         [Header("Movement")]
         public float moveSpeed = 5;

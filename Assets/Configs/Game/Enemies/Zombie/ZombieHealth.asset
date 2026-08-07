@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6805485291b53ca4b963205e1d4c44cb, type: 3}
-  m_Name: Zombie
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemy.EnemyConfigs
-  maxHealh: 80
-  damage: 6
-  moveSpeed: 7
-  rotationSpeed: 247.7
+  m_Script: {fileID: 11500000, guid: 28ffe02fdd0f60d4a8ca935cd8d993b6, type: 3}
+  m_Name: ZombieHealth
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Health.HealthConfigs
+  maxHealth: 60
+  autoHeal: 0
+  healDelay: 0
+  healSpeed: 0

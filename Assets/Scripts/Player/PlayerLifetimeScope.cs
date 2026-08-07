@@ -1,3 +1,4 @@
+using Assets.Scripts.Health;
 using Assets.Scripts.Player.Services;
 using VContainer;
 using VContainer.Unity;
@@ -10,6 +11,8 @@ namespace Assets.Scripts.Player
         {
             builder.RegisterEntryPoint<MoveService>().AsSelf();
             builder.RegisterEntryPoint<LookService>().AsSelf();
+
+            builder.Register<HealthService>(Lifetime.Singleton).AsSelf();
         }
     }
 }

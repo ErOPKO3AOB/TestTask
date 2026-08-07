@@ -1,4 +1,5 @@
 using Assets.Scripts.Enemy.Services;
+using Assets.Scripts.Health;
 using VContainer;
 using VContainer.Unity;
 
@@ -8,7 +9,11 @@ namespace Assets.Scripts.Enemy
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<MovementService>();
+            builder.Register<EnemyModel>(Lifetime.Singleton).AsSelf();
+
+            builder.RegisterEntryPoint<MovementService>().AsSelf();
+
+            builder.Register<HealthService>(Lifetime.Singleton).AsSelf();
         }
     }
 }
