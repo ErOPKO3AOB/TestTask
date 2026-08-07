@@ -1,5 +1,3 @@
-using Assets.Scripts.Enemy;
-using Assets.Scripts.Enemy.Services;
 using Assets.Scripts.Player;
 using UnityEngine;
 using VContainer.Unity;

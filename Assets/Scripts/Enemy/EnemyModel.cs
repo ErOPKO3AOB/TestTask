@@ -12,7 +12,7 @@ namespace Assets.Scripts.Enemy
             _healthService = healthService;
         }
 
-        private readonly MovementService _movementService;
-        private readonly HealthService _healthService;
+        public readonly MovementService _movementService;
+        public readonly HealthService _healthService;
     }
 }
