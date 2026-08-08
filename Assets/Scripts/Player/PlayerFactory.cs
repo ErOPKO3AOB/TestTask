@@ -30,6 +30,7 @@ namespace Assets.Scripts.Player
             _gameLifetimeScope.CreateChild<PlayerLifetimeScope>(builder => 
             {
                 builder.RegisterComponent(playerView).AsSelf();
+                //builder.RegisterComponent(playerView.configs.damageConfigs).AsSelf();
             });
 
             // Spawn camera

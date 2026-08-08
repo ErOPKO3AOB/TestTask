@@ -5,8 +5,10 @@ namespace Assets.Scripts.Player
 {
     public class PlayerModel
     {
-        public PlayerModel(AutoAimService autoAimService, LookService lookService, MoveService moveService, HealthService healthService)
+        public PlayerModel(PlayerView playerView, AutoAimService autoAimService, LookService lookService, MoveService moveService, HealthService healthService)
         {
+            playerView.Construct(this);
+
             this.autoAimService = autoAimService;
             this.lookService = lookService;
             this.moveService = moveService;

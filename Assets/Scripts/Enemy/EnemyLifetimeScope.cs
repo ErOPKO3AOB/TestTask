@@ -11,9 +11,9 @@ namespace Assets.Scripts.Enemy
         {
             builder.Register<EnemyModel>(Lifetime.Singleton).AsSelf();
 
-            builder.RegisterEntryPoint<MovementService>().AsSelf();
+            builder.RegisterEntryPoint<MovementService>(Lifetime.Singleton).AsSelf();
 
-            builder.Register<HealthService>(Lifetime.Singleton).AsSelf();
+            builder.RegisterEntryPoint<HealthService>(Lifetime.Singleton).AsSelf();
         }
     }
 }

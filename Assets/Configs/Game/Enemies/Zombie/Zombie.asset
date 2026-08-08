@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Zombie
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Enemy.EnemyConfigs
   healthConfigs: {fileID: 11400000, guid: 2cd1d454bf27e4d45afd211fb0d463bd, type: 2}
+  damageConfigs: {fileID: 11400000, guid: ecd822e63c74e2148b0b8f92b3fd8e7f, type: 2}
   moveSpeed: 7
   rotationSpeed: 247.7

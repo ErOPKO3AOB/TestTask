@@ -9,10 +9,13 @@ namespace Assets.Scripts.Player
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<MoveService>().AsSelf();
-            builder.RegisterEntryPoint<LookService>().AsSelf();
+            builder.Register<PlayerModel>(Lifetime.Singleton).AsSelf();
 
-            builder.Register<HealthService>(Lifetime.Singleton).AsSelf();
+            builder.RegisterEntryPoint<MoveService>(Lifetime.Singleton).AsSelf();
+            builder.RegisterEntryPoint<LookService>(Lifetime.Singleton).AsSelf();
+            builder.RegisterEntryPoint<AutoAimService>(Lifetime.Singleton).AsSelf();
+
+            builder.RegisterEntryPoint<HealthService>(Lifetime.Singleton).AsSelf();
         }
     }
 }

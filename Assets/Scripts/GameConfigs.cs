@@ -11,6 +11,7 @@ namespace Assets.Scripts
         public GameObject playerPrefab;
         public GameObject CM_FollowCamPrefab;
         public List<EnemySettings> enemies;
+        public GameObject aim;
 
         [Header("Game settings")]
         public float baseSpawnInterval = 2.0f;

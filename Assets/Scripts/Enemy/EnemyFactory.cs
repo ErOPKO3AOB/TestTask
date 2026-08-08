@@ -43,6 +43,9 @@ namespace Assets.Scripts.Enemy
             {
                 builder.RegisterInstance(_playerFactory.PlayerView);
                 builder.RegisterComponent(enemyView).AsSelf();
+
+                builder.Register<Transform>(Lifetime.Singleton).AsSelf().Keyed("DamagePoint");
+                builder.RegisterComponent(enemyView.configs.damageConfigs).AsSelf();
             });
 
             return null;

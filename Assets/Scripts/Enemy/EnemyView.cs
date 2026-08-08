@@ -1,13 +1,12 @@
+using Assets.Scripts.Damage;
 using UnityEngine;
 using UnityEngine.AI;
-using VContainer;
 
 namespace Assets.Scripts.Enemy
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyView : MonoBehaviour
+    public class EnemyView : MonoBehaviour, IDamagable
     {
-        [Inject]
         public void Construct(EnemyModel enemyModel)
         {
             EnemyModel = enemyModel;
@@ -17,5 +16,10 @@ namespace Assets.Scripts.Enemy
 
         public EnemyConfigs configs;
         public NavMeshAgent navMeshAgent;
+
+        public void TakeDamage(float damage)
+        {
+            EnemyModel.healthService.TakeDamage(damage);
+        }
     }
 }

@@ -17,6 +17,7 @@ MonoBehaviour:
   enemies:
   - name: Zombie
     prefab: {fileID: 905220316099941172, guid: befde47eeee739b4b93727f20f0f9595, type: 3}
+  aim: {fileID: 2735301756710872181, guid: 91563311fccbf8c4391fef2dd38d462c, type: 3}
   baseSpawnInterval: 2
   minSpawnInterval: 1
   maxSpawnRate: 6

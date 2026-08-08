@@ -6,13 +6,14 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyModel
     {
-        public EnemyModel(MovementService movementService, HealthService healthService)
+        public EnemyModel(EnemyView enemyView, MovementService movementService, HealthService healthService)
         {
-            _movementService = movementService;
-            _healthService = healthService;
+            enemyView.Construct(this);
+            this.movementService = movementService;
+            this.healthService = healthService;
         }
 
-        public readonly MovementService _movementService;
-        public readonly HealthService _healthService;
+        public readonly MovementService movementService;
+        public readonly HealthService healthService;
     }
 }

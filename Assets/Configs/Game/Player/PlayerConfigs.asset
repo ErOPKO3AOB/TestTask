@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: PlayerConfigs
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Player.PlayerConfigs
   healthConfigs: {fileID: 11400000, guid: 2b5da22ddfdb73548bec1868345aae96, type: 2}
-  moveSpeed: 7
+  damageConfigs: {fileID: 11400000, guid: 8d5d90b14b7f1b44abed12fc03fd4d66, type: 2}
+  autoAimDistance: 6
+  autoAimRange: 7
+  autoAimLM:
+    serializedVersion: 2
+    m_Bits: 128
+  moveSpeed: 20
   rotationSpeed: 12

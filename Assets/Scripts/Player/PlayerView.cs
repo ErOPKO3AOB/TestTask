@@ -1,13 +1,10 @@
-using Assets.Scripts.Health;
-using System;
+using Assets.Scripts.Damage;
 using UnityEngine;
-using VContainer;
 
 namespace Assets.Scripts.Player
 {
-    public class PlayerView : MonoBehaviour
+    public class PlayerView : MonoBehaviour, IDamagable
     {
-        [Inject]
         public void Construct(PlayerModel playerModel)
         {
             PlayerModel = playerModel;
@@ -17,5 +14,10 @@ namespace Assets.Scripts.Player
 
         public PlayerConfigs configs;
         public Rigidbody rb;
+
+        public void TakeDamage(float damage)
+        {
+            PlayerModel.healthService.TakeDamage(damage);
+        }
     }
 }
