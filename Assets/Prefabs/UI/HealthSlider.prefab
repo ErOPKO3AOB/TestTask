@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5395005028574522366}
   - component: {fileID: 7626486609408827089}
+  - component: {fileID: 7121375639686233980}
   m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7121375639686233980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816128741946013140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e2c319d8c99c1499956d8da147fd29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Health.UI.HealthBarUI
+  _slider: {fileID: 7626486609408827089}
 --- !u!1 &2847228734438483517
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,11 @@ MonoBehaviour:
   enemies:
   - name: Zombie
     prefab: {fileID: 905220316099941172, guid: befde47eeee739b4b93727f20f0f9595, type: 3}
+  bulletPrefab: {fileID: 4485808806707242038, guid: 8cb6b28aee33e6d4bb51b56ed80185c9, type: 3}
   aim: {fileID: 2735301756710872181, guid: 91563311fccbf8c4391fef2dd38d462c, type: 3}
+  gameCanvas: {fileID: 1103590639474653417, guid: 63bebd3ed680f2a46bb48b024d497232, type: 3}
+  healthBarUI: {fileID: 7121375639686233980, guid: d46a3c8cb843cf94e9ee34206fa1aae7, type: 3}
+  healthHUD: {fileID: 7204912673590033252, guid: d81863fe41bd1954082485ebc45f44fe, type: 3}
   baseSpawnInterval: 2
   minSpawnInterval: 1
   maxSpawnRate: 6

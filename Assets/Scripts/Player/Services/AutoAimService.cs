@@ -12,11 +12,13 @@ namespace Assets.Scripts.Player.Services
         }
 
         private readonly PlayerView _playerView;
-        private float _delayTime = 0.2f;
-        private float _nextTime;
-
-        private readonly RaycastHit[] _raycastHits = new RaycastHit[1];
         private readonly GameConfigs _gameConfigs;
+
+        private float _delayTime = 0.1f;
+        private float _nextTime;
+        
+        //private readonly RaycastHit[] _raycastHits = new RaycastHit[16];
+        private readonly Collider[] _overlapHits = new Collider[16];
 
         public Transform Target { get; private set; }
         private GameObject _aimInstance;
@@ -29,29 +31,21 @@ namespace Assets.Scripts.Player.Services
         public void Tick()
         {
             if (Time.time < _nextTime) return;
-
             _nextTime = Time.time + _delayTime;
 
             var configs = _playerView.configs;
-            int hits = Physics.SphereCastNonAlloc(
-                _playerView.transform.position,
-                configs.autoAimDistance,
-                _playerView.transform.forward,
-                _raycastHits,
-                configs.autoAimRange,
-                configs.autoAimLM,
-                QueryTriggerInteraction.Ignore
-            );
+            Transform nearest = FindNearestEnemy(configs);
 
-            if (hits > 0 && _raycastHits[0].distance <= configs.autoAimRange)
+            if (nearest != null)
             {
-                Target = _raycastHits[0].transform;
+                Target = nearest;
+
                 if (_aimInstance == null)
-                    _aimInstance = GameObject.Instantiate(_gameConfigs.aim);
+                    _aimInstance = Object.Instantiate(_gameConfigs.aim);
 
                 _aimInstance.SetActive(true);
-                _aimInstance.transform.SetParent(Target.transform);
-                _aimInstance.transform.localPosition = new Vector3(0, -0.45f, 0);
+                _aimInstance.transform.SetParent(Target);
+                _aimInstance.transform.localPosition = new Vector3(0f, -0.45f, 0f);
                 _aimInstance.transform.localRotation = Quaternion.identity;
             }
             else
@@ -63,5 +57,70 @@ namespace Assets.Scripts.Player.Services
             }
         }
 
+        private Transform FindNearestEnemy(PlayerConfigs configs)
+        {
+            // Вариант 1: чистый ближайший в радиусе (самый надёжный)
+            int count = Physics.OverlapSphereNonAlloc(
+                _playerView.transform.position,
+                configs.autoAimRange,
+                _overlapHits,
+                configs.autoAimLM,
+                QueryTriggerInteraction.Ignore
+            );
+
+            Transform nearest = null;
+            float nearestDistSqr = float.MaxValue;
+            Vector3 origin = _playerView.transform.position;
+
+            for (int i = 0; i < count; i++)
+            {
+                Collider col = _overlapHits[i];
+                if (col == null) continue;
+
+                // Можно добавить дополнительную проверку, что это враг
+                // if (!col.TryGetComponent<Enemy>(out _)) continue;
+
+                float distSqr = (col.transform.position - origin).sqrMagnitude;
+                if (distSqr < nearestDistSqr)
+                {
+                    nearestDistSqr = distSqr;
+                    nearest = col.transform;
+                }
+            }
+
+            return nearest;
+
+            /* 
+            // Вариант 2: если нужно учитывать направление вперёд (как было)
+            // Раскомментируй этот блок и закомментируй OverlapSphere, если нужен "конус" вперёд
+
+            int hits = Physics.SphereCastNonAlloc(
+                _playerView.transform.position,
+                configs.autoAimDistance,          // радиус сферы
+                _playerView.transform.forward,
+                _raycastHits,
+                configs.autoAimRange,
+                configs.autoAimLM,
+                QueryTriggerInteraction.Ignore
+            );
+
+            Transform nearest = null;
+            float nearestDist = float.MaxValue;
+
+            for (int i = 0; i < hits; i++)
+            {
+                ref RaycastHit hit = ref _raycastHits[i];
+                if (hit.collider == null) continue;
+
+                if (hit.distance < nearestDist)
+                {
+                    nearestDist = hit.distance;
+                    nearest = hit.transform;
+                }
+            }
+
+            return nearest;
+            */
+        }
     }
 }

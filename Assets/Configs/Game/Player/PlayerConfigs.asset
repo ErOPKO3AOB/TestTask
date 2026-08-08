@@ -19,5 +19,5 @@ MonoBehaviour:
   autoAimLM:
     serializedVersion: 2
     m_Bits: 128
-  moveSpeed: 20
+  moveSpeed: 10
   rotationSpeed: 12

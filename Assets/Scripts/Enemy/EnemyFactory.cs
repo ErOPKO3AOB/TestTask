@@ -1,4 +1,3 @@
-using Assets.Scripts.ObjectPool;
 using Assets.Scripts.Player;
 using System;
 using UnityEngine;
@@ -9,22 +8,18 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemyFactory
     {
-        public EnemyFactory(IObjectResolver resolver, GameLifetimeScope gameLifetimeScope, GameConfigs gameConfigs, ObjectPoolService objectPoolService, PlayerFactory playerFactory)
+        public EnemyFactory(IObjectResolver resolver, GameLifetimeScope gameLifetimeScope, GameConfigs gameConfigs, PlayerFactory playerFactory)
         {
             _resolver = resolver;
             _gameLifetimeScope = gameLifetimeScope;
             _gameConfigs = gameConfigs;
             _playerFactory = playerFactory;
-
-            _objectPoolService = objectPoolService;
         }
 
         private readonly IObjectResolver _resolver;
         private readonly GameLifetimeScope _gameLifetimeScope;
         private readonly GameConfigs _gameConfigs;
         private readonly PlayerFactory _playerFactory;
-
-        private readonly ObjectPoolService _objectPoolService;
 
         public EnemyView Create(string name, Vector3 position = default, Quaternion rotation = default)
         {
@@ -44,8 +39,11 @@ namespace Assets.Scripts.Enemy
                 builder.RegisterInstance(_playerFactory.PlayerView);
                 builder.RegisterComponent(enemyView).AsSelf();
 
+                builder.RegisterComponent(enemyView.configs.healthConfigs).AsSelf();
                 builder.Register<Transform>(Lifetime.Singleton).AsSelf().Keyed("DamagePoint");
                 builder.RegisterComponent(enemyView.configs.damageConfigs).AsSelf();
+
+                builder.RegisterComponent(GameObject.Instantiate(_gameConfigs.healthHUD, enemyView.transform));
             });
 
             return null;

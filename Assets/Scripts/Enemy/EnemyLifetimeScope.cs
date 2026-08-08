@@ -1,3 +1,4 @@
+using Assets.Scripts.Damage;
 using Assets.Scripts.Enemy.Services;
 using Assets.Scripts.Health;
 using VContainer;
@@ -14,6 +15,8 @@ namespace Assets.Scripts.Enemy
             builder.RegisterEntryPoint<MovementService>(Lifetime.Singleton).AsSelf();
 
             builder.RegisterEntryPoint<HealthService>(Lifetime.Singleton).AsSelf();
+
+            builder.RegisterEntryPoint<DamageService>(Lifetime.Singleton).AsSelf();
         }
     }
 }

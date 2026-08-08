@@ -26,11 +26,16 @@ namespace Assets.Scripts.Player
             // Spawn player
             var playerView = GameObject.Instantiate(_gameConfigs.playerPrefab, position, rotation).GetComponent<PlayerView>();
 
+            var canvas = GameObject.Instantiate(_gameConfigs.gameCanvas);
+
             // Spawning player scope
             _gameLifetimeScope.CreateChild<PlayerLifetimeScope>(builder => 
             {
                 builder.RegisterComponent(playerView).AsSelf();
-                //builder.RegisterComponent(playerView.configs.damageConfigs).AsSelf();
+                builder.RegisterComponent(playerView.configs.damageConfigs).AsSelf();
+                builder.RegisterComponent(playerView.configs.healthConfigs).AsSelf();
+
+                builder.RegisterComponent(GameObject.Instantiate(_gameConfigs.healthBarUI, canvas.transform));
             });
 
             // Spawn camera

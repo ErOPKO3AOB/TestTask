@@ -1,3 +1,4 @@
+using Assets.Scripts.Health.UI;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,17 +12,23 @@ namespace Assets.Scripts
         public GameObject playerPrefab;
         public GameObject CM_FollowCamPrefab;
         public List<EnemySettings> enemies;
+        public GameObject bulletPrefab;
         public GameObject aim;
+
+        [Header("UI")]
+        public GameObject gameCanvas;
+        public HealthBarUI healthBarUI;
+        public HealthBarHUD healthHUD;
 
         [Header("Game settings")]
         public float baseSpawnInterval = 2.0f;
         public float minSpawnInterval = 0.15f;
         public float maxSpawnRate = 8f;
         public AnimationCurve spawnRateCurve = AnimationCurve.Linear(0f, 1f, 180f, 6f);
-        public float minSpawnRadius = 12f;          // внутренняя запретная зона
-        public float maxSpawnRadius = 25f;          // внешний радиус
-        public int maxSpawnAttempts = 12;           // сколько раз пробовать найти свободное место
-        public float navMeshSampleDistance = 2.5f;  // радиус поиска NavMesh точки
+        public float minSpawnRadius = 12f;
+        public float maxSpawnRadius = 25f;
+        public int maxSpawnAttempts = 12;
+        public float navMeshSampleDistance = 2.5f;
         public LayerMask obstacleMask;
 
         #region Logic
