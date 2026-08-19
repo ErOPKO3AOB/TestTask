@@ -11,7 +11,7 @@ namespace Assets.Scripts.Health.UI
             var cam = Camera.main;
             if (cam == null) return;
 
-            GetComponent<Canvas>().worldCamera = cam;
+            GetComponent<Canvas>().worldCamera = cam;                   
 
             var lookAt = gameObject.AddComponent<LookAtConstraint>();
 
